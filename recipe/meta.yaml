@@ -11,7 +11,9 @@ source:
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: 
+    - {{ PYTHON }} -m pip install . -vv
+    - if [[ "$(uname)" == "Linux" || "$(uname)" == "Darwin" ]]; then conda install -y -c conda-forge openbabel=3.1.1 xtb crest; fi # verifico que el SO sea Linux o Mac y si es así instala xtb, crest y openbabel si es Windows no
   number: 0
 
 requirements:
@@ -28,6 +30,10 @@ requirements:
     - pyyaml
     - openbabel ==3.1.1
     - rdkit ==2024.3.3
+    - ase # Añado ase, torch torchvision y torchani
+    - torch
+    - torchvision
+    - torchani
 
 test:
   imports:
