@@ -18,9 +18,9 @@ requirements:
   host:
     - pip
     - setuptools
-    - python >=3.10
+    - python >=3.6 # do not touch the version! the conda-forge test won't pass otherwise
   run:
-    - python >=3.10
+    - python >=3.6 # do not touch the version! the conda-forge test won't pass otherwise
     - cclib ==1.7.2
     - cffi
     - numpy ==1.26.4
